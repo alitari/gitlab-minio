@@ -1,0 +1,23 @@
+concurrent = 1
+check_interval = 0
+[[runners]]
+  name = "722f4b5aa0ed"
+  url = "http://104.199.5.245/ci"
+  token = "1d608227ae93038ec009a61f7adc60"
+  executor = "docker"
+  [runners.docker]
+    tls_verify = false
+    image = "maven:3-jdk-8"
+    privileged = false
+    disable_cache = false
+    volumes = ["/cache"]
+  [runners.cache]
+    Type = "s3"
+    ServerAddress = "104.199.5.245:9000"
+    AccessKey = "IZQIZLRM09S0YLBRF78I"
+    SecretKey = "qJNDeZH9KjCUJUFteLTS5kZmlVoHg1fOxf4oltei"
+    BucketName = "runners"
+    BucketLocation = "us-east-1"
+    Insecure = true
+    Path = "cache"
+    Shared = true
